@@ -44,18 +44,80 @@
         <span class="editor-filename">Program02.java</span>
       </div>
       <textarea class="editor-textarea" id="codeBox" spellcheck="false">import java.util.Scanner;
+public class pr1_b {
 
-public class Program02 {
+// Matrix Multiplication
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter first number: ");
-        int a = sc.nextInt();
-        System.out.print("Enter second number: ");
-        int b = sc.nextInt();
-        System.out.println("Sum = " + (a + b));
+
+        int r1, c1, r2, c2;
+        // Reading dimensions of matrices
+        System.out.print("Enter rows and columns of first matrix: ");
+        r1 = sc.nextInt();
+        c1 = sc.nextInt();
+
+        System.out.print("Enter rows and columns of second matrix: ");
+        r2 = sc.nextInt();
+        c2 = sc.nextInt();
+        // Checking multiplication condition
+        if (c1 != r2) {
+            System.out.println("Matrix multiplication is not possible.");
+            sc.close();
+            return;
+        }
+        // Declaring matrices
+        int[][] a = new int[r1][c1];
+        int[][] b = new int[r2][c2];
+        int[][] result = new int[r1][c2];
+        // Reading first matrix
+        System.out.println("Enter elements of first matrix:");
+
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                a[i][j] = sc.nextInt();
+                System.out.print("\t");
+            }
+            System.out.println();
+        }
+        // Reading second matrix
+        System.out.println("Enter elements of second matrix:");
+
+        for (int i = 0; i < r2; i++) {
+            for (int j = 0; j < c2; j++) {
+                b[i][j] = sc.nextInt();
+                System.out.print("\t");
+            }
+            System.out.println();
+        }
+        // Multiplying matrices
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+
+                    result[i][j] += a[i][k] * b[k][j];
+
+                }
+            }
+        }
+        // Displaying resultant matrix
+        System.out.println("Resultant Matrix:");
+
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                System.out.print(result[i][j] + "\t");
+            }
+
+            System.out.println();
+        }
+
         sc.close();
     }
 }
+
+
+
+
 </textarea>
     </div>
 
