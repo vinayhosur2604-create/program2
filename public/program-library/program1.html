@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program 01 - My Programs Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="hero-glow"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+      <span class="header-label">My Programs Library</span>
+    </div>
+  </header>
+
+  <main class="program-main">
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Home
+    </a>
+
+    <h1 class="program-heading">PROGRAM 01</h1>
+    <p class="program-subheading">Edit the code below, then copy it when ready.</p>
+
+    <div class="editor-wrapper">
+      <div class="editor-titlebar">
+        <span class="editor-dot red"></span>
+        <span class="editor-dot yellow"></span>
+        <span class="editor-dot green"></span>
+        <span class="editor-filename">program01.c</span>
+      </div>
+      <textarea class="editor-textarea" id="codeBox" spellcheck="false">/* Program #include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int *arr;
+    int n, newsize, i;
+
+    printf("Enter the number of elements:");
+    scanf("%d", &n);
+
+    arr = (int*) malloc(n * sizeof(int));
+
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
+    printf("Enter the %d elements\n", n);
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+
+    printf("\nOriginal array:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d", arr[i]);
+    }
+
+    printf("\n\nEnter the new size of the array:");
+    scanf("%d", &newsize);
+
+    arr = (int*) realloc(arr, newsize * sizeof(int));
+
+    if (arr == NULL)
+    {
+        printf("Memory reallocation failed\n");
+        return 1;
+    }
+
+    if (newsize > n)
+    {
+        printf("Enter %d new elements:\n", newsize - n);
+
+        for (i = n; i < newsize; i++)
+        {
+            scanf("%d", &arr[i]);
+        }
+    }
+
+    printf("\nArray after resizing:\n");
+
+    for (i = 0; i < newsize; i++)
+    {
+        printf("%d", arr[i]);
+    }
+
+    free(arr);
+    arr = NULL;
+
+    printf("\nMemory deallocated successfully\n");
+
+    return 0;
+}
+</textarea>
+    </div>
+
+    <div class="actions-row">
+      <button class="action-btn btn-copy" id="copyBtn" onclick="copyCode()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        COPY CODE
+      </button>
+      <button class="action-btn btn-select" onclick="selectAllCode()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18v18H3z"></path>
+          <path d="M9 9h6v6H9z"></path>
+        </svg>
+        Select All
+      </button>
+      <span class="copy-message" id="copyMsg">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Copied Successfully!
+      </span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>My Programs Library &mdash; Edit, Copy &amp; Run</p>
+  </footer>
+
+  <script>
+    function copyCode() {
+      var box = document.getElementById('codeBox');
+      var msg = document.getElementById('copyMsg');
+      var text = box.value;
+
+      function showSuccess() {
+        msg.classList.add('visible');
+        setTimeout(function () {
+          msg.classList.remove('visible');
+        }, 2000);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showSuccess).catch(function () {
+          fallbackCopy(box, showSuccess);
+        });
+      } else {
+        fallbackCopy(box, showSuccess);
+      }
+    }
+
+    function fallbackCopy(box, onSuccess) {
+      box.focus();
+      box.select();
+      try {
+        document.execCommand('copy');
+        onSuccess();
+      } catch (e) {
+        alert('Copy failed. Please select all and copy manually.');
+      }
+    }
+
+    function selectAllCode() {
+      var box = document.getElementById('codeBox');
+      box.focus();
+      box.select();
+    }
+  </script>
+</body>
+</html>

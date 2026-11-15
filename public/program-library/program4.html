@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Program 04 - My Programs Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="hero-glow"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+      <span class="header-label">My Programs Library</span>
+    </div>
+  </header>
+
+  <main class="program-main">
+    <a href="index.html" class="back-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Home
+    </a>
+
+    <h1 class="program-heading">PROGRAM 04</h1>
+    <p class="program-subheading">Edit the code below, then copy it when ready.</p>
+
+    <div class="editor-wrapper">
+      <div class="editor-titlebar">
+        <span class="editor-dot red"></span>
+        <span class="editor-dot yellow"></span>
+        <span class="editor-dot green"></span>
+        <span class="editor-filename">program04.c</span>
+      </div>
+      <textarea class="editor-textarea" id="codeBox" spellcheck="false">
+    #include <stdio.h>
+#include <stdlib.h>
+
+#define MAX 5
+
+char queue[MAX];
+int front = -1;
+int rear = -1;
+
+void enqueue()
+{
+    char ch;
+
+    if (rear == MAX - 1)
+    {
+        printf("\nQueue Overflow! Cannot insert element.\n");
+        return;
+    }
+
+    printf("Enter a character to insert: ");
+    scanf(" %c", &ch);
+
+    if (front == -1)
+        front = 0;
+
+    rear++;
+    queue[rear] = ch;
+
+    printf("Character '%c' inserted successfully.\n", ch);
+}
+
+void dequeue()
+{
+    char ch;
+
+    if (front == -1 || front > rear)
+    {
+        printf("\nQueue Underflow! Queue is empty.\n");
+        return;
+    }
+
+    ch = queue[front];
+
+    printf("Character '%c' deleted successfully.\n", ch);
+
+    front++;
+
+    if (front > rear)
+    {
+        front = -1;
+        rear = -1;
+    }
+}
+
+void display()
+{
+    int i;
+
+    if (front == -1)
+    {
+        printf("\nQueue is empty.\n");
+        return;
+    }
+
+    printf("\nQueue elements are:\n");
+
+    for (i = front; i <= rear; i++)
+    {
+        printf("%c ", queue[i]);
+    }
+
+    printf("\n");
+}
+
+int main()
+{
+    int choice;
+
+    while (1)
+    {
+        printf("\n\n===== LINEAR QUEUE OF CHARACTERS =====");
+        printf("\n1. Enqueue");
+        printf("\n2. Dequeue");
+        printf("\n3. Display");
+        printf("\n4. Exit");
+
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+            case 1:
+                enqueue();
+                break;
+
+            case 2:
+                dequeue();
+                break;
+
+            case 3:
+                display();
+                break;
+
+            case 4:
+                printf("\nExiting program...\n");
+                exit(0);
+
+            default:
+                printf("\nInvalid choice! Please try again.\n");
+        }
+    }
+
+    return 0;
+}
+</textarea>
+    </div>
+
+    <div class="actions-row">
+      <button class="action-btn btn-copy" id="copyBtn" onclick="copyCode()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+        COPY CODE
+      </button>
+      <button class="action-btn btn-select" onclick="selectAllCode()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h18v18H3z"></path>
+          <path d="M9 9h6v6H9z"></path>
+        </svg>
+        Select All
+      </button>
+      <span class="copy-message" id="copyMsg">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Copied Successfully!
+      </span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>My Programs Library &mdash; Edit, Copy &amp; Run</p>
+  </footer>
+
+  <script>
+    function copyCode() {
+      var box = document.getElementById('codeBox');
+      var msg = document.getElementById('copyMsg');
+      var text = box.value;
+
+      function showSuccess() {
+        msg.classList.add('visible');
+        setTimeout(function () {
+          msg.classList.remove('visible');
+        }, 2000);
+      }
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(showSuccess).catch(function () {
+          fallbackCopy(box, showSuccess);
+        });
+      } else {
+        fallbackCopy(box, showSuccess);
+      }
+    }
+
+    function fallbackCopy(box, onSuccess) {
+      box.focus();
+      box.select();
+      try {
+        document.execCommand('copy');
+        onSuccess();
+      } catch (e) {
+        alert('Copy failed. Please select all and copy manually.');
+      }
+    }
+
+    function selectAllCode() {
+      var box = document.getElementById('codeBox');
+      box.focus();
+      box.select();
+    }
+  </script>
+</body>
+</html>
