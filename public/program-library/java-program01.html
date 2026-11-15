@@ -43,11 +43,46 @@
         <span class="editor-dot green"></span>
         <span class="editor-filename">Program01.java</span>
       </div>
-      <textarea class="editor-textarea" id="codeBox" spellcheck="false">public class Program01 {
+      <textarea class="editor-textarea" id="codeBox" spellcheck="false">import java.util.Scanner;
+public class pr1_a {
+
+    // Recursive function
+    static int fabRec(int n) {
+        if (n <= 1)
+            return n;
+        else
+            return fabRec(n - 1) + fabRec(n - 2);
+    }
+
+    // Non-recursive function
+    static void fabNRec(int n) {
+        int first = 0, second = 1;
+        for (int i = 0; i < n; i++) {
+            System.out.print(first + " ");
+            int next = first + second;
+            first = second;
+            second = next;
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter no of terms: ");
+        int n = sc.nextInt();
+        System.out.println("Fibonacci with Recursion.");
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(fabRec(i) + " ");
+        }
+        System.out.println("\nFibonacci without Recursion.");
+        fabNRec(n);
+        sc.close();
     }
 }
+
+
+
 </textarea>
     </div>
 
