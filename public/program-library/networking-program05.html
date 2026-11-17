@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Networking Program 05 - My Programs Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="hero-glow"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+      <span class="header-label">My Programs Library</span>
+    </div>
+  </header>
+
+  <main class="program-main">
+    <a href="networking.html" class="back-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Networking
+    </a>
+
+    <h1 class="program-heading">NETWORKING PROGRAM 05</h1>
+    <p class="program-subheading">IP Addressing: Every Device Has an Address</p>
+
+    <div class="note-card">
+      <p>
+        An IP address is a unique number given to every device on a network, much like a house
+        address for mail. The older IPv4 format is four numbers between 0 and 255 separated by
+        dots, for example 192.168.1.10, which allows about 4.3 billion addresses. Because the
+        world ran out of these, IPv6 was created, using longer addresses written with colons,
+        such as 2001:0db8:85a3::8a2e:0370:7334.
+      </p>
+      <p>
+        A router connects your private network to the internet and assigns local addresses to
+        your devices using DHCP. Some addresses, like 192.168.x.x or 10.x.x.x, are reserved
+        for private use and are reused in homes all over the world, while your router shares a
+        single public address with all of them.
+      </p>
+    </div>
+
+    <div class="note-image">
+      <img src="https://images.pexels.com/photos/29711663/pexels-photo-29711663.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="A white wireless router with four antennas" />
+      <span class="note-caption">A home router, which assigns local IP addresses to devices</span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>My Programs Library &mdash; Edit, Copy &amp; Run</p>
+  </footer>
+</body>
+</html>

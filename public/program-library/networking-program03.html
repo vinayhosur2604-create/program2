@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Networking Program 03 - My Programs Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="hero-glow"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+      <span class="header-label">My Programs Library</span>
+    </div>
+  </header>
+
+  <main class="program-main">
+    <a href="networking.html" class="back-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Networking
+    </a>
+
+    <h1 class="program-heading">NETWORKING PROGRAM 03</h1>
+    <p class="program-subheading">The OSI Model and Its Seven Layers</p>
+
+    <div class="note-card">
+      <p>
+        The OSI model describes how data moves through a network in seven layers. Starting from
+        the top they are: Application, Presentation, Session, Transport, Network, Data Link,
+        and Physical. Each layer has its own job, and each one serves the layer above it while
+        using the services of the layer below.
+      </p>
+      <p>
+        When you send a message, the data travels down the layers on your computer, crosses
+        the network, and then climbs back up the layers on the receiving computer. This layer
+        by layer design makes troubleshooting easier, because an engineer can isolate a problem
+        to one layer, such as a broken cable at the physical layer or a wrong address at the
+        network layer.
+      </p>
+    </div>
+
+    <div class="note-image">
+      <img src="https://images.pexels.com/photos/2881224/pexels-photo-2881224.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Close-up of ethernet cables plugged into a network switch" />
+      <span class="note-caption">A network switch, working mostly at the data link layer</span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>My Programs Library &mdash; Edit, Copy &amp; Run</p>
+  </footer>
+</body>
+</html>

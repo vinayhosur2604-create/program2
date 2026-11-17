@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Networking Program 04 - My Programs Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="hero-glow"></div>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo-badge">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      </div>
+      <span class="header-label">My Programs Library</span>
+    </div>
+  </header>
+
+  <main class="program-main">
+    <a href="networking.html" class="back-btn">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back to Networking
+    </a>
+
+    <h1 class="program-heading">NETWORKING PROGRAM 04</h1>
+    <p class="program-subheading">TCP/IP: The Rules of the Internet</p>
+
+    <div class="note-card">
+      <p>
+        TCP/IP is the set of rules the internet runs on. It has four layers: Application,
+        Transport, Internet, and Network Access. TCP, the Transmission Control Protocol,
+        breaks your data into small packets, numbers them, and makes sure every packet arrives
+        safely at the other end. IP, the Internet Protocol, gives each packet an address so it
+        can find its way across many different networks.
+      </p>
+      <p>
+        TCP is reliable but slower, because it checks and resends anything that is lost. Its
+        partner UDP is faster but does not check for errors, which is why live video and
+        online games often use UDP, while web pages and downloads use TCP. Every internet
+        service, from email to streaming, is built on this foundation.
+      </p>
+    </div>
+
+    <div class="note-image">
+      <img src="https://images.pexels.com/photos/2881232/pexels-photo-2881232.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Blue ethernet cables connected to a network switch in a data center" />
+      <span class="note-caption">Packets travelling through cabled links between switches</span>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>My Programs Library &mdash; Edit, Copy &amp; Run</p>
+  </footer>
+</body>
+</html>
