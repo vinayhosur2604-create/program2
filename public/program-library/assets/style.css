@@ -142,6 +142,32 @@ body {
   margin: 0 auto;
 }
 
+.manual-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.manual-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+  color: #fff;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.manual-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-blue), var(--glow-cyan);
+}
+
 .program-card {
   position: relative;
   display: flex;
